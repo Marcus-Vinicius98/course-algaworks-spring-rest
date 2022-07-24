@@ -3,3 +3,5 @@ spring:
     url: jdbc:mysql://localhost:3306/algalog
     name: root
     password: banco123
+  jpa:
+    show-sql: true
