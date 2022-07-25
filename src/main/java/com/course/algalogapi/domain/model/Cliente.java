@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -18,11 +21,20 @@ public class Cliente implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "nome", nullable = false, length = 60)
+	
+	
+	@NotBlank
+	@Size(max = 60)
 	private String nome;
-	@Column(name = "email", nullable = false, length = 255)
+    
+	@NotBlank
+	@Email
+	@Size(max = 255)
 	private String email;
-	@Column(name = "telefone", nullable = false, length = 20)
+	
+	@NotBlank
+	@Size(max = 20)
+	@Column(nullable = false)
 	private String telefone;
 
 	public Long getId() {
